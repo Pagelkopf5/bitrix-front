@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <h1>Empresas</h1>
       <NewCompany refresh={() => handleCompanies()}/>
-      <ListCompany companies={companies} refresh={() => handleCompanies()}/>
+      <ListCompany companies={companies} setCompanies={setCompanies} refresh={() => handleCompanies()}/>
     </div>
   );
 }

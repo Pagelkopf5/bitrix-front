@@ -36,6 +36,30 @@ export async function getCompanies() {
     }
 }
 
+export async function editCompany(data) {
+    try {
+        const res = await fetch(`${apiUrl}/companies/${data.ID}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ...data,
+                _method: 'PATCH'
+            })
+        });
+
+        if (!res.ok) {
+            const errorText = await res.text();
+            throw new Error(`Patch error: ${res.status} - ${errorText}`);
+        }
+
+        return true;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function deleteCompany(id, idContact1 = undefined, idContact2 = undefined) {
     try {
         const res = await fetch(`${apiUrl}/companies/${id}`, {

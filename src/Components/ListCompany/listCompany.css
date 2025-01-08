@@ -32,8 +32,22 @@ td:first-of-type, th:first-of-type{
     transition: all 0.2s;
 }
 
-
 .btn:hover{
     background-color: #062041;
     color: #f0f0f0;
+}
+
+.companies input{
+    background-color: #f0f0f0;
+    width: 130px;
+    border: solid 1px #424242;
+    padding: 4px 6px;
+}
+
+.companies .names input{
+    width: 50px;
+}
+
+.companies .names input:first-of-type{
+    margin-right: 4px;
 }
