@@ -30,7 +30,7 @@ export async function getCompanies() {
             throw new Error(`Get error: ${res.status} - ${errorText}`);
         }
 
-        return await res.json();
+        return res.json();
     } catch (error) {
         console.error(error);
     }

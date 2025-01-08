@@ -9,7 +9,7 @@ function App() {
   const handleCompanies = async () => {
     let res = await getCompanies()
     if (res) {
-      setCompanies(res)
+      setCompanies(res.result)
     }
   }
 
@@ -17,7 +17,16 @@ function App() {
     let res = await deleteCompany(id, idContact1, idContact2)
     if (res) {
       alert('Empresa deletada com sucesso!')
+      handleCompanies()
     }
+  }
+
+  const handleContacts = (company) => {
+    return (
+      company.contacts?.map((contact, index) => (
+        <p key={index}>{contact.NAME} {contact.LAST_NAME}</p>
+      ))
+    )
   }
 
   useEffect(() => {
@@ -27,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <h1>Empresas</h1>
-      <NewCompany />
+      <NewCompany refresh={() => handleCompanies()}/>
       <div className='companies-list'>
         <div className='companies'>
           <div className='company'>
@@ -47,14 +56,13 @@ function App() {
             companies.map((company, index) => (
               <div className='company' key={index}>
                 <div className='company-info'>
-                  <span>{company.company_name}</span>
-                  <span>{company.email}</span>
-                  <span>{company.contact_name_1} {company.contact_second_name_1}</span>
-                  <span>{company.contact_name_2} {company.contact_second_name_2}</span>
+                  <p>{company.TITLE}</p>
+                  <p>{company.HAS_EMAIL}</p>
+                  {handleContacts(company)}
                 </div>
                 <div className='company-actions'>
                   <button className='btn-edit'>Editar</button>
-                  <button className='btn-delete' onClick={() => handleDelete(company.ID, company.contacts[0].ID, company.contacts[1].ID, )}>Excluir</button>
+                  <button className='btn-delete' onClick={() => handleDelete(company.ID, company.contacts[1].ID, company.contacts[1].ID, )}>Excluir</button>
                 </div>
               </div>
             ))
