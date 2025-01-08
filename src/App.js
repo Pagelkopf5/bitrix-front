@@ -1,25 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { addCompany, getCompanies, deleteCompany } from './Services/api';
+import { getCompanies, deleteCompany } from './Services/api';
+import NewCompany from './Components/NewCompany/NewCompany';
 
 function App() {
   const [companies, setCompanies] = useState([]);
-  const [formData, setFormData] = useState();
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    let res = await addCompany(formData)
-    if (res) {
-      alert('Empresa cadastrada com sucesso!')
-    }
-  };
 
   const handleCompanies = async () => {
     let res = await getCompanies()
@@ -41,26 +26,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className='new-company'>
-        <div className='button-wrap'>
-          <button className='btn'>Nova Empresa</button>
-        </div>
-        <div className='content'>
-          <form onSubmit={handleSubmit}>
-            <input type='text' name="company_name" onChange={handleChange} placeholder='Razão Social'/>
-            <input type='email' name="email" onChange={handleChange} placeholder='Email'/>
-            <span>Contato 1</span>
-            <input type='text' name="contact_name_1" onChange={handleChange} placeholder='Nome'/>
-            <input type='text' name="contact_second_name_1" onChange={handleChange} placeholder='Sobrenome'/>
-            <span>Contato 2</span>
-            <input type='text' name="contact_name_2" onChange={handleChange} placeholder='Nome'/>
-            <input type='text' name="contact_second_name_2" onChange={handleChange} placeholder='Sobrenome'/>
-            <button className='btn-submit' type="submit" >Salvar</button>
-          </form>
-        </div>
-      </div>
+      <h1>Empresas</h1>
+      <NewCompany />
       <div className='companies-list'>
-        <h2>Empresas</h2>
         <div className='companies'>
           <div className='company'>
             <div className='company-info'>

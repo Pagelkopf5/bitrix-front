@@ -1,0 +1,65 @@
+.new-company{
+    position: relative;
+}
+
+.new-company .button-wrap{
+    position: absolute;
+    right: 0;
+    top: -52px;
+}
+
+.new-company .btn{
+    cursor: pointer;
+    border: solid 1px #424242;
+    background-color: #f0f0f0;
+    padding: 4px 8px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+.new-company .btn:hover{
+    background-color: #062041;
+    color: #f0f0f0;
+}
+
+.new-company .content {
+    border: solid 0px #ccc;
+    height: 0px;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.new-company .open{
+    border-width: 1px;
+    padding: 8px 0;
+    height: 88px;
+}
+
+.new-company .content form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.new-company .content form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.new-company .content span{
+    font-size: 14px;
+    font-weight: 600;
+    width: 120px;
+}
+
+.new-company .content input{
+    background-color: #f0f0f0;
+    width: 120px;
+    border: solid 1px #424242;
+    padding: 4px 6px;
+    margin-top: 4px;
+}
+.new-company .content .btn-submit{
+    margin-top: -7px;
+}
+
