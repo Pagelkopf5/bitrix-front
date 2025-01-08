@@ -1,0 +1,39 @@
+.companies{
+    margin: auto;
+    width: 100%;
+}
+
+.table{
+    border-collapse: collapse;
+    margin: auto;
+    border-spacing: 0px;
+    width: 100%;
+}
+
+td, th{
+    border-left: 1px solid black;
+}
+
+td:first-of-type, th:first-of-type{
+    border-left: none;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.btn{
+    cursor: pointer;
+    border: solid 1px #424242;
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    transition: all 0.2s;
+}
+
+
+.btn:hover{
+    background-color: #062041;
+    color: #f0f0f0;
+}
